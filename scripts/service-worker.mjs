@@ -4,6 +4,7 @@ const files = [
   "./",
   "./index.html",
   "./icon.svg",
+  "./dragon.svg",
   "./manifest.webmanifest",
   ...(await readdir("dist/assets")).map((f) => "./assets/" + f),
 ];

@@ -114,23 +114,19 @@ test("export/import validation, undo and cancelled advantage", async ({
   const chunks: Buffer[] = [];
   for await (const chunk of stream!) chunks.push(chunk);
   const data = Buffer.concat(chunks);
-  await page
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "invalid.json",
-      mimeType: "application/json",
-      buffer: Buffer.from("{}"),
-    });
+  await page.locator("input[type=file]").setInputFiles({
+    name: "invalid.json",
+    mimeType: "application/json",
+    buffer: Buffer.from("{}"),
+  });
   await expect(page.getByRole("status")).toContainText("Invalid version-1");
   page.once("dialog", (d) => d.accept());
   await page.getByRole("button", { name: "New battle", exact: true }).click();
-  await page
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "battle.json",
-      mimeType: "application/json",
-      buffer: data,
-    });
+  await page.locator("input[type=file]").setInputFiles({
+    name: "battle.json",
+    mimeType: "application/json",
+    buffer: data,
+  });
   await page.getByRole("button", { name: "Battle", exact: true }).click();
   await expect(page.locator(".actor")).toHaveCount(2);
   await page
@@ -178,4 +174,9 @@ test("first-visit precache provides offline shell and assets", async ({
   await expect(
     page.getByRole("button", { name: "Roster & sheets", exact: true }),
   ).toBeVisible();
+  await expect(page.locator(".dragon-art")).toHaveJSProperty("complete", true);
+  await expect(page.locator(".dragon-art")).not.toHaveJSProperty(
+    "naturalWidth",
+    0,
+  );
 });

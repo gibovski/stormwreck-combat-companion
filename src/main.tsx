@@ -124,6 +124,9 @@ function App() {
   }
   return (
     <>
+      <a className="skip-link" href="#adventure">
+        Skip to adventure
+      </a>
       <header>
         <div className="brand">
           <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
@@ -136,13 +139,19 @@ function App() {
         </div>
         <div className="save">● Saved on this device</div>
       </header>
-      <main>
+      <main id="adventure" tabIndex={-1}>
         <div className="intro">
           <div>
-            <small>KEEP YOUR DICE. FIND YOUR RHYTHM.</small>
+            <small>THE DRAGON’S TABLE · YOUR ADVENTURE AWAITS</small>
             <h2>Your table, in turn.</h2>
             <p>Roll on the table. Enter the numbers. Let the adventure move.</p>
           </div>
+          <img
+            className="dragon-art"
+            src={`${import.meta.env.BASE_URL}dragon.svg`}
+            alt=""
+            aria-hidden="true"
+          />
           <div className="round">
             <small>ROUND</small>
             <strong>{s.round.toString().padStart(2, "0")}</strong>
@@ -153,6 +162,7 @@ function App() {
             <button
               key={t}
               className={tab === t ? "on" : ""}
+              aria-pressed={tab === t}
               onClick={() => T(t)}
             >
               {t}
@@ -191,7 +201,8 @@ function App() {
               {order(s.actors).map((x) => (
                 <article
                   key={x.id}
-                  className={`actor ${s.active === x.id ? "active" : ""}`}
+                  data-side={x.side}
+                  className={`actor ${s.active === x.id ? "active" : ""} ${selected === x.id ? "selected" : ""}`}
                 >
                   <div className="actor-top">
                     <span className="badge">
@@ -298,7 +309,7 @@ function App() {
               </button>
             </section>
             <aside>
-              <section className="panel">
+              <section className="panel dice-panel">
                 <small>PHYSICAL DICE ONLY</small>
                 <h3>Resolve an attack</h3>
                 <label>
@@ -427,7 +438,10 @@ function App() {
                   Check hit
                 </button>
                 {result && (
-                  <output className="calculation">
+                  <output
+                    className={`calculation ${result.hit ? "hit" : "miss"}`}
+                    aria-live="polite"
+                  >
                     {result.hit ? "HIT" : "MISS"} · {result.text}
                   </output>
                 )}
@@ -637,7 +651,7 @@ function App() {
         )}
         {tab === "Roster & sheets" && (
           <>
-            <section className="panel">
+            <section className="panel party-panel">
               <small>THE ADVENTURING PARTY</small>
               <h3>Five official premade sheets</h3>
               <p>
@@ -669,7 +683,7 @@ function App() {
                 ))}
               </div>
             </section>
-            <section className="panel">
+            <section className="panel encounter-panel">
               <small>MANUAL ENCOUNTER BUILDER</small>
               <h3>Choose your opponents</h3>
               <p>

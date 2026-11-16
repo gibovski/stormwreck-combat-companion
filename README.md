@@ -44,13 +44,8 @@ Independent unofficial companion; no endorsement. Code is MIT licensed; SRD-deri
 
 ## Deployment
 
-The repository is intended to stay private under the workspace policy. GitHub Pages for private repositories requires an eligible GitHub plan. `.github/workflows/pages.yml` tests, builds, uploads and deploys on pushes to main with Pages Actions permissions. Enable Pages source **GitHub Actions** in repository settings, or:
+The public repository deploys to [GitHub Pages](https://gibovski.github.io/stormwreck-combat-companion/). `.github/workflows/pages.yml` runs unit tests, builds, checks mobile and desktop Chromium, and deploys on pushes to `main`. Pages uses the GitHub Actions source.
 
-```sh
-gh api -X POST repos/gibovski/stormwreck-combat-companion/pages -f build_type=workflow
-gh workflow run pages.yml --repo gibovski/stormwreck-combat-companion
-```
-
-If the account plan blocks private-repository Pages, upgrade to a qualifying plan and rerun that command and the workflow. Do not change repository visibility merely to bypass that restriction. Repository publication and Pages are distinct: a successful push alone does not verify a live deployment.
+The fantasy theme uses original CSS textures, an original SVG dragon and d20 crest, and system serif/sans-serif fonts. No external artwork or font downloads are required. Decorative motifs are hidden from assistive technology; navigation, physical dice inputs, and combat outcomes retain text labels. Reduced-motion preferences disable transitions.
 
 See `VERIFICATION.md` for actual checks and deployment outcome.

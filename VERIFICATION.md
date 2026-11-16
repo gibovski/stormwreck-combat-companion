@@ -24,14 +24,18 @@ Downloaded official PDFs temporarily for verification; PDFs are not committed:
 - Official five-premade PDF SHA-256: `7fd9af4718ba1a9c5f04ea2bcb6bd93e64ab2d0800501e40e27d88e8e1e0eef5`.
 - Directly checked SRD printed pp.324, 346, 356–357 against the three combat presets. Character sheet source links and personal-use restriction documented in README and app. Premade statistics are intentionally editable placeholders rather than redistributed restricted material.
 
-## Deployment blocker
+## Fantasy restyle verification — 2026-11-16
 
-Authenticated account: `gibovski`. Private repository created and verified through GitHub API. Activation attempted using:
+- Original SVG dragon and CSS-only parchment, rune, and jewel-tone treatments; no third-party artwork or runtime font downloads. Existing d20 crest retained.
+- `npm test`: 14 engine tests passed. `npm run build`: TypeScript and Vite production build passed.
+- Mobile and desktop Chromium coverage now includes keyboard skip link, pressed navigation state, physical dice entry by keyboard, reduced-motion behavior, roster and encounter screenshots, and overflow checks at 320, 390, 768 and 1440 CSS pixels. Existing combat, critical damage, undo, healing, conditions, import/export, resume and offline checks retained.
+- The generated service worker precaches the dragon illustration; first-visit offline test verifies it decodes successfully.
+- Screenshots are produced in `test-results/` for battle, roster and encounter views on mobile and desktop. CI uploads them as the `browser-screenshots` artifact.
+- Screenshots visually reviewed for readable HP/AC, active turn, mobile controls and card layouts. Browser tests emulate Chromium; real Safari/iOS and a full assistive-technology audit were not performed.
+- `git diff --check`: passed.
 
-```sh
-gh api -X POST repos/gibovski/stormwreck-combat-companion/pages -f build_type=workflow
-```
+## Deployment
 
-GitHub returned **HTTP 422**: `Your current plan does not support GitHub Pages for this repository.` Repository stays private per workspace instructions. No live site or live URL is claimed. README contains activation and workflow commands for after an eligible-plan upgrade. CI verifies and uploads the build artifact; deployment is skipped until the Pages API confirms Pages is enabled.
+The earlier private-repository plan restriction is resolved: the repository is now public as requested by the user. GitHub API confirms Pages uses `build_type: workflow`, HTTPS enforced, and the live URL is https://gibovski.github.io/stormwreck-combat-companion/. The existing workflow verifies unit tests/build/browser tests before deploying. See GitHub Actions for the deployment tied to each commit; successful push alone is not considered deployment verification.
 
-Browser tests cover Chromium emulation, not real iOS/Safari install UI. Spell saves/effects, death saves, condition effects, monster traits and other DM adjudication remain manual as described in README and the app.
+Spell saves/effects, death saves, condition effects, monster traits and other DM adjudication remain manual as described in README and the app.

@@ -26,6 +26,10 @@ jobs:
       - run: npm run build
       - run: node node_modules/playwright/cli.js install --with-deps chromium
       - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        with:
+          name: browser-screenshots
+          path: test-results/*.png
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
