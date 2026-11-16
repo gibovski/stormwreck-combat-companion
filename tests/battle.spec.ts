@@ -4,9 +4,7 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
   context,
 }) => {
   await page.goto("./");
-  await page
-    .getByRole("button", { name: "Roster & sheets", exact: true })
-    .click();
+  await page.getByRole("button", { name: "Setup", exact: true }).click();
   await page.getByRole("button", { name: "+ Add Kobold", exact: true }).click();
   await page.getByRole("button", { name: "+ Add Kobold", exact: true }).click();
   await page.getByRole("button", { name: "Battle", exact: true }).click();
@@ -14,6 +12,7 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
   await page.getByLabel("Kobold 2 initiative").fill("10");
   await page.getByRole("button", { name: "Start battle →" }).click();
   await expect(page.locator(".actor.active")).toContainText("Kobold 1");
+  await page.getByRole("button", { name: "Attack", exact: true }).click();
   await page
     .getByLabel("Attacker", { exact: true })
     .selectOption({ label: "Kobold 1" });
@@ -25,6 +24,7 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
   await expect(page.locator("output")).toContainText("critical hit");
   await page.getByLabel("Individual dice results").fill("2, 1");
   await page.getByRole("button", { name: "Apply damage", exact: true }).click();
+  await page.getByRole("button", { name: "Battle", exact: true }).click();
   await expect(
     page
       .locator(".actor")
@@ -33,7 +33,9 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
       })
       .locator(".vitals"),
   ).toContainText("0 / 5 HP");
-  await page.getByRole("button", { name: /↶ Undo/ }).click();
+  await page
+    .getByRole("button", { name: "Undo last change", exact: true })
+    .click();
   await expect(
     page
       .locator(".actor")
@@ -62,9 +64,11 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
-  await page.locator(".scene-art").evaluateAll((imgs) =>
-    Promise.all(imgs.map((img) => (img as HTMLImageElement).decode())),
-  );
+  await page
+    .locator(".scene-art")
+    .evaluateAll((imgs) =>
+      Promise.all(imgs.map((img) => (img as HTMLImageElement).decode())),
+    );
   await page.screenshot({
     path: `test-results/battle-${test.info().project.name}.png`,
     fullPage: true,
@@ -74,9 +78,7 @@ test("official placeholders require values; custom hero and conditions", async (
   page,
 }) => {
   await page.goto("./");
-  await page
-    .getByRole("button", { name: "Roster & sheets", exact: true })
-    .click();
+  await page.getByRole("button", { name: "Setup", exact: true }).click();
   await expect(
     page.getByRole("link", { name: "Open official five-sheet PDF ↗" }),
   ).toHaveAttribute("href", /dnd_starterset_characters.pdf/);
@@ -87,13 +89,16 @@ test("official placeholders require values; custom hero and conditions", async (
     .getByRole("button", { name: "Save combatant", exact: true })
     .click();
   await page.getByRole("button", { name: "Battle", exact: true }).click();
-  await page.getByRole("button", { name: "Use / manage", exact: true }).click();
-  await page.getByLabel("Toggle condition").selectOption("Prone");
+  await page.getByText("Conditions, notes & details", { exact: true }).click();
+  await page.getByLabel("Conditions for Cleric").selectOption("Prone");
   await expect(page.locator(".tags")).toContainText("Prone");
-  await page.getByLabel("HP amount").fill("4");
-  await page.getByRole("button", { name: "Damage", exact: true }).click();
+  await page.getByLabel("Cleric HP amount").fill("4");
+  await page
+    .getByRole("button", { name: "Damage Cleric", exact: true })
+    .click();
   await expect(page.locator(".vitals")).toContainText("6 / 10 HP");
-  await page.getByRole("button", { name: "Heal", exact: true }).click();
+  await page.getByLabel("Cleric HP amount").fill("4");
+  await page.getByRole("button", { name: "Heal Cleric", exact: true }).click();
   await expect(page.locator(".vitals")).toContainText("10 / 10 HP");
 });
 
@@ -101,13 +106,14 @@ test("export/import validation, undo and cancelled advantage", async ({
   page,
 }) => {
   await page.goto("./");
-  await page
-    .getByRole("button", { name: "Roster & sheets", exact: true })
-    .click();
+  await page.getByRole("button", { name: "Setup", exact: true }).click();
   await page
     .getByRole("button", { name: "+ Add Skeleton", exact: true })
     .click();
   await page.getByRole("button", { name: "+ Add Zombie", exact: true }).click();
+  await page
+    .getByText("Backup, battle journal & reset", { exact: true })
+    .click();
   const download = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Export backup", exact: true })
@@ -132,6 +138,7 @@ test("export/import validation, undo and cancelled advantage", async ({
   });
   await page.getByRole("button", { name: "Battle", exact: true }).click();
   await expect(page.locator(".actor")).toHaveCount(2);
+  await page.getByRole("button", { name: "Attack", exact: true }).click();
   await page
     .getByLabel("Attacker", { exact: true })
     .selectOption({ label: "Skeleton 1" });
@@ -150,6 +157,7 @@ test("export/import validation, undo and cancelled advantage", async ({
   ).toBeDisabled();
   await page.getByRole("button", { name: /↶ Undo/ }).click();
   await page.getByRole("button", { name: /↶ Undo/ }).click();
+  await page.getByRole("button", { name: "Battle", exact: true }).click();
   await expect(page.locator(".actor")).toHaveCount(0);
 });
 
@@ -175,7 +183,7 @@ test("first-visit precache provides offline shell and assets", async ({
     page.getByRole("heading", { name: "Your table, in turn." }),
   ).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "Roster & sheets", exact: true }),
+    page.getByRole("button", { name: "Setup", exact: true }),
   ).toBeVisible();
   const artNames = [
     "wreck",
@@ -196,14 +204,15 @@ test("first-visit precache provides offline shell and assets", async ({
       }, name),
     ).toBe(true);
   }
-  await page
-    .getByRole("button", { name: "Roster & sheets", exact: true })
-    .click();
+  await page.getByRole("button", { name: "Setup", exact: true }).click();
   for (const img of await page.locator(".scene-art").all()) {
     await expect(img).not.toHaveJSProperty("naturalWidth", 0);
   }
-  await expect(page.locator(".dragon-art")).toHaveJSProperty("complete", true);
-  await expect(page.locator(".dragon-art")).not.toHaveJSProperty(
+  await expect(page.locator(".masthead-dragon")).toHaveJSProperty(
+    "complete",
+    true,
+  );
+  await expect(page.locator(".masthead-dragon")).not.toHaveJSProperty(
     "naturalWidth",
     0,
   );

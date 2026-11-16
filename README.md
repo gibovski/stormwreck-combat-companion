@@ -20,12 +20,12 @@ Open the Vite URL with `/stormwreck-combat-companion/`. Production files are in 
 
 ## Play
 
-1. Roster & sheets → official PDF → enter each hero's verified level-1 combat values. Five editable class slots are provided; none contains guessed stats. Set the attack and damage profile you want to use; edit for another weapon or spell, or override the fields during an attack. Notes hold other abilities, resources and death saves.
+1. Setup → official PDF → enter each hero's verified level-1 combat values. Five editable class slots are provided; none contains guessed stats. Set the attack and damage profile you want to use; edit for another weapon or spell, or override the fields during an attack. Notes hold other abilities, resources and death saves (saved on leaving the field).
 2. Add SRD Kobolds, Skeletons or Zombies, or enter a custom combatant. Each copy has its own ID and HP. Presets are abridged combat extracts, not complete stat blocks.
 3. Physically roll initiative, add DEX, and enter **totals**. Use arrows for equal-total ties. Start battle, then Next turn. Zero HP does not automatically remove a combatant.
 4. Choose attacker/target and enter physical d20 values. Natural 1 always misses; natural 20 always hits critically. Advantage/disadvantage cancel when both apply. Otherwise choose high/low.
-5. Enter individual physical damage die results, including twice the dice on a critical, and add the modifier once. Resistance rounds down after adding the modifier. Temp HP absorbs first, HP clamps at zero. Mixed damage types need separate attack/damage applications or manual HP controls.
-6. Use/manage controls provide damage, capped healing, temp HP replacement and condition toggles. Undo reverses battle mutations during this session. Reload preserves the battle but not undo history. Export/import uses `{ "version": 1, "battle": ... }`; malformed files are rejected. Imports replace the current battle and are undoable.
+5. Open Attack for the existing calculator. Enter individual physical damage die results, including twice the dice on a critical, and add the modifier once. Resistance rounds down after adding the modifier. Temp HP absorbs first, HP clamps at zero. Mixed damage types need separate attack/damage applications or manual HP controls.
+6. Each battle card provides direct damage and capped healing. Expand Conditions, notes & details for conditions, sheet notes, editing, removal and tie ordering. Attack retains temp HP replacement and the full physical-dice calculator. Undo reverses battle mutations during this session. Reload preserves the battle but not undo history. Export/import uses `{ "version": 1, "battle": ... }`; malformed files are rejected. Imports replace the current battle and are undoable.
 
 ## Scope and manual adjudication
 
@@ -46,10 +46,10 @@ Independent unofficial companion; no endorsement. Code is MIT licensed; SRD-deri
 
 The public repository deploys to [GitHub Pages](https://gibovski.github.io/stormwreck-combat-companion/). `.github/workflows/pages.yml` runs unit tests, builds, checks mobile and desktop Chromium, and deploys on pushes to `main`. Pages uses the GitHub Actions source.
 
-The visual treatment uses seven original AI-generated dark fantasy paintings, locally hosted as optimized WebP assets. Slate, charcoal, muted teal and aged copper surfaces keep the coastal atmosphere consistent. No official D&D artwork, stock clipart, external fonts or hotlinks are used. Decorative art is hidden from assistive technology; opaque controls, keyboard navigation and physical dice workflows remain intact.
+The visual treatment uses seven original AI-generated dark fantasy paintings, locally hosted as optimized WebP assets. Slate, charcoal, muted teal and aged copper surfaces keep the coastal atmosphere consistent. A compact dragon masthead and contextual setup thumbnails keep imagery outside the combat work surface. Current/next actor, round and undo stay in a bottom dock; the active actor scrolls into view on turn changes. No official D&D artwork, stock clipart, external fonts or hotlinks are used. Decorative art is hidden from assistive technology; opaque controls, keyboard navigation and physical dice workflows remain intact.
 
 ## Artwork provenance
 
 All seven paintings in `public/art/` were generated specifically for this project using OpenAI image generation on 2026-11-16: a bronze dragon above storm cliffs, a wreck, ruined statue garden, drowned sailors, dragon-tail framing, an antique watch lantern and a dragon-claw gaming altar. These are original generated assets rather than licensed third-party illustrations; no official franchise artwork was supplied as reference. They are distributed with this repository under its MIT terms to the extent rights apply. Optimized WebP keeps the entire set small enough for offline precaching. The service worker hashes artwork contents as well as the app entry point, so art replacements invalidate the cache.
 
-See `VERIFICATION.md` for actual checks and deployment outcome.
+See `docs/ui-review/combat-redesign/` for independent before/after reviews, screenshots and interaction evidence. `VERIFICATION.md` documents the earlier release.

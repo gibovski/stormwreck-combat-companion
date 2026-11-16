@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-11-16T23:11:16.148Z",
+  "url": "http://127.0.0.1:4173/stormwreck-combat-companion/",
+  "checks": [
+    {
+      "width": 375,
+      "result": "PASS",
+      "paths": [
+        "add Zombie + Skeleton",
+        "initiative totals",
+        "start",
+        "manual 7 damage → 15/22",
+        "heal → 22/22",
+        "Prone toggle",
+        "undo condition",
+        "next actor",
+        "round wrap",
+        "reload recovery",
+        "remove actor"
+      ]
+    },
+    {
+      "width": 390,
+      "result": "PASS",
+      "paths": [
+        "add Zombie + Skeleton",
+        "initiative totals",
+        "start",
+        "manual 7 damage → 15/22",
+        "heal → 22/22",
+        "Prone toggle",
+        "undo condition",
+        "next actor",
+        "round wrap",
+        "reload recovery",
+        "remove actor"
+      ]
+    },
+    {
+      "width": 1440,
+      "result": "PASS",
+      "paths": [
+        "add Zombie + Skeleton",
+        "initiative totals",
+        "start",
+        "manual 7 damage → 15/22",
+        "heal → 22/22",
+        "Prone toggle",
+        "undo condition",
+        "next actor",
+        "round wrap",
+        "reload recovery",
+        "remove actor"
+      ]
+    }
+  ],
+  "geometry": {
+    "375": {
+      "viewport": 844,
+      "document": 3755,
+      "overflow": false,
+      "activeTop": 1109.328125,
+      "nextTop": 947.96875,
+      "manageTop": 3521
+    },
+    "390": {
+      "viewport": 844,
+      "document": 3745,
+      "overflow": false,
+      "activeTop": 1099.359375,
+      "nextTop": 938,
+      "manageTop": 3511.03125
+    },
+    "1440": {
+      "viewport": 1000,
+      "document": 2813,
+      "overflow": false,
+      "activeTop": 1141.96875,
+      "nextTop": 1026.09375,
+      "manageTop": 2637.046875
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "revision": "06806e44f3bf2da879a8349814cc62abd81346e1",
+  "reviewer": {
+    "identity": "/root/ux_review",
+    "method": "independent-agent"
+  },
+  "scores": {
+    "hierarchy": 1,
+    "journeys": 2,
+    "responsive": 2,
+    "accessibility": 3,
+    "consistency": 4,
+    "states": 3,
+    "brand": 4
+  },
+  "aggregate": 2.7142857142857144,
+  "visual_evidence_opened": [
+    "battle-390.png",
+    "battle-1440.png"
+  ],
+  "baseline_captured_before_modifications": true
+}
