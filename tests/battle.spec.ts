@@ -174,6 +174,31 @@ test("first-visit precache provides offline shell and assets", async ({
   await expect(
     page.getByRole("button", { name: "Roster & sheets", exact: true }),
   ).toBeVisible();
+  const artNames = [
+    "wreck",
+    "tide-dragon",
+    "dice-dragon",
+    "roll-guardian",
+    "statue-garden",
+    "sailors",
+    "lantern-sprite",
+  ];
+  for (const name of artNames) {
+    expect(
+      await page.evaluate(async (name) => {
+        const img = new Image();
+        img.src = `./art/${name}.svg`;
+        await img.decode();
+        return img.naturalWidth > 0;
+      }, name),
+    ).toBe(true);
+  }
+  await page
+    .getByRole("button", { name: "Roster & sheets", exact: true })
+    .click();
+  for (const img of await page.locator(".storybook-art").all()) {
+    await expect(img).not.toHaveJSProperty("naturalWidth", 0);
+  }
   await expect(page.locator(".dragon-art")).toHaveJSProperty("complete", true);
   await expect(page.locator(".dragon-art")).not.toHaveJSProperty(
     "naturalWidth",

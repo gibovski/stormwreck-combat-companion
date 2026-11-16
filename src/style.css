@@ -924,3 +924,328 @@ nav button:focus-visible,
 .skip-link:not(:focus) {
   clip-path: inset(50%);
 }
+
+/* Original storybook plates: illustrations occupy reserved, noninteractive space. */
+.storybook-art {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  max-width: 100%;
+}
+.intro {
+  min-height: 300px;
+  overflow: visible;
+}
+.intro > div:first-child {
+  max-width: 55%;
+}
+.round-keeper {
+  position: relative;
+  width: 310px;
+  height: 255px;
+  flex-shrink: 0;
+}
+.round-keeper .dragon-art {
+  position: absolute;
+  inset: 0;
+  width: 310px;
+  height: 255px;
+  opacity: 1;
+  z-index: 0;
+  filter: drop-shadow(0 8px 5px #071b2540);
+}
+.round-keeper .round {
+  position: absolute;
+  right: 62px;
+  bottom: 22px;
+  padding: 8px 15px;
+  min-width: 77px;
+  border-radius: 10px;
+  background: #fff0cc;
+  box-shadow: 0 3px 0 #162f35;
+  z-index: 1;
+}
+.round-keeper .round small {
+  color: #365a58;
+}
+.round-keeper .round strong {
+  color: #244e53;
+  font-size: 33px;
+}
+.wreck-scene {
+  grid-column: 1 / -1;
+  position: relative;
+  margin: 0;
+  border: 1px solid #788c82;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #173742;
+}
+.wreck-scene > img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.wreck-scene figcaption {
+  position: absolute;
+  right: 30px;
+  bottom: 24px;
+  padding: 12px 18px;
+  background: #102d36ed;
+  border: 1px solid #8b9b86;
+  border-radius: 6px;
+  color: #fff0cd;
+}
+figure figcaption small,
+figure figcaption span {
+  display: block;
+}
+figure figcaption span {
+  font:
+    italic 18px/1.5 Georgia,
+    serif;
+}
+figure figcaption small {
+  color: #e8c58d;
+}
+.dice-guardian {
+  margin: -12px -8px 18px;
+  border-bottom: 1px solid #cbb88e;
+  text-align: center;
+  padding-bottom: 14px;
+}
+.dice-guardian img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+.dice-guardian span,
+.sailor-peek span {
+  font:
+    italic 13px/1.5 Georgia,
+    serif;
+  color: #5f6860;
+}
+.roll-fields {
+  border: 2px solid #b694b0;
+  border-radius: 10px;
+  background: #eadde740;
+  padding: 0 12px;
+}
+.illustrated-vitals {
+  position: relative;
+  padding: 49px 15px 30px;
+  margin-top: 5px;
+  width: fit-content;
+  min-width: 290px;
+  min-height: 124px;
+  isolation: isolate;
+}
+.illustrated-vitals .vitals-dragon {
+  position: absolute;
+  inset: -19px 0 0;
+  width: 100%;
+  height: 155px;
+  object-fit: fill;
+  z-index: -1;
+}
+.illustrated-vitals > strong,
+.illustrated-vitals > span {
+  background: #fff6dd;
+  border: 1px solid #ba9b79;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+.illustrated-vitals > strong {
+  font-size: 23px;
+}
+.empty .empty-sprite {
+  width: 230px;
+  height: 172px;
+  margin: -25px auto 0;
+}
+.garden-scene {
+  position: relative;
+  margin: -24px -24px 22px;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
+  background: #d9dfc5;
+}
+.garden-scene img {
+  width: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+.garden-scene figcaption {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  color: #2c514f;
+  max-width: 45%;
+}
+.garden-scene figcaption small {
+  color: #4c6c5c;
+}
+.garden-scene figcaption span {
+  font-size: 25px;
+  margin-top: 8px;
+}
+.encounter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.encounter-heading img {
+  width: 150px;
+  height: 110px;
+  margin: -20px 0;
+}
+.sailor-peek {
+  position: relative;
+  margin: 0 auto -42px;
+  max-width: 600px;
+  text-align: center;
+}
+.sailor-peek img {
+  width: 100%;
+  height: auto;
+}
+.sailor-peek span {
+  position: absolute;
+  width: 27%;
+  left: 36%;
+  top: 30%;
+}
+.encounter-panel .grid {
+  position: relative;
+  margin-top: 0;
+  gap: 20px;
+}
+.encounter-panel .card {
+  box-shadow:
+    0 -3px 0 #d4bd91,
+    0 5px 12px #243f3520;
+}
+.guide-sprite {
+  float: right;
+  width: 160px;
+  margin: 0 0 12px 12px;
+}
+@media (max-width: 800px) {
+  .intro {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 20px 0;
+    gap: 0;
+  }
+  .intro > div:first-child {
+    max-width: 100%;
+  }
+  .intro h2 {
+    font-size: 34px;
+  }
+  .round-keeper {
+    align-self: center;
+    width: 290px;
+    height: 230px;
+    margin-top: -10px;
+  }
+  .round-keeper .dragon-art {
+    width: 290px;
+    height: 239px;
+  }
+  .round-keeper .round {
+    bottom: 10px;
+    right: 57px;
+  }
+  .wreck-scene > img {
+    height: 210px;
+    object-position: 32% center;
+  }
+  .wreck-scene figcaption {
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 10px;
+  }
+  figure figcaption span {
+    font-size: 15px;
+  }
+  .garden-scene {
+    margin: -19px -19px 20px;
+  }
+  .garden-scene img {
+    height: 260px;
+    min-height: 0;
+    object-position: 66% bottom;
+  }
+  .garden-scene figcaption {
+    top: 18px;
+    left: 18px;
+    max-width: 57%;
+  }
+  .garden-scene figcaption span {
+    font-size: 22px;
+  }
+  .illustrated-vitals {
+    min-width: 0;
+    width: 100%;
+    gap: 6px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .illustrated-vitals > strong {
+    font-size: 21px;
+  }
+  .illustrated-vitals > span {
+    font-size: 11px;
+  }
+  .sailor-peek {
+    margin-bottom: -20px;
+  }
+  .sailor-peek span {
+    display: none;
+  }
+  .encounter-heading img {
+    width: 100px;
+  }
+  .encounter-panel .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.roll-fields {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  background: none;
+  padding: 115px 20px 42px;
+  margin: 0 -8px;
+  gap: 10px;
+}
+.roll-fields > .storybook-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.roll-fields label {
+  background: #f8ebd2;
+  border-radius: 6px;
+  padding: 4px;
+  min-width: 60px;
+}
+@media (max-width: 800px) {
+  .garden-scene {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .garden-scene figcaption {
+    position: static;
+    max-width: none;
+    padding: 18px 18px 0;
+  }
+  .garden-scene img {
+    height: 210px;
+  }
+}

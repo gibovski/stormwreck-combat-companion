@@ -15,6 +15,17 @@ import {
 } from "./engine";
 import { heroes, monsters, conditions, official } from "./data";
 import "./style.css";
+function Art({ name, className = "" }: { name: string; className?: string }) {
+  return (
+    <img
+      className={`storybook-art ${className}`}
+      src={`${import.meta.env.BASE_URL}art/${name}.svg`}
+      alt=""
+      aria-hidden="true"
+      draggable="false"
+    />
+  );
+}
 const KEY = "stormwreck-battle-v1";
 function load() {
   try {
@@ -146,15 +157,12 @@ function App() {
             <h2>Your table, in turn.</h2>
             <p>Roll on the table. Enter the numbers. Let the adventure move.</p>
           </div>
-          <img
-            className="dragon-art"
-            src={`${import.meta.env.BASE_URL}dragon.svg`}
-            alt=""
-            aria-hidden="true"
-          />
-          <div className="round">
-            <small>ROUND</small>
-            <strong>{s.round.toString().padStart(2, "0")}</strong>
+          <div className="round-keeper">
+            <Art name="tide-dragon" className="dragon-art" />
+            <div className="round">
+              <small>ROUND</small>
+              <strong>{s.round.toString().padStart(2, "0")}</strong>
+            </div>
           </div>
         </div>
         <nav aria-label="Main navigation">
@@ -175,6 +183,13 @@ function App() {
         </div>
         {tab === "Battle" && (
           <div className="layout">
+            <figure className="wreck-scene">
+              <Art name="wreck" />
+              <figcaption>
+                <small>THE SHALLOWS</small>
+                <span>Something stirs beyond the mist.</span>
+              </figcaption>
+            </figure>
             <section>
               <div className="sectionhead">
                 <h3>
@@ -237,7 +252,8 @@ function App() {
                     </label>
                   </div>
                   <h3>{x.name}</h3>
-                  <div className="vitals">
+                  <div className="vitals illustrated-vitals">
+                    <Art name="dice-dragon" className="vitals-dragon" />
                     <strong>
                       {x.hp}
                       <small> / {x.maxHp} HP</small>
@@ -296,7 +312,7 @@ function App() {
               ))}
               {!s.actors.length && (
                 <div className="empty">
-                  <span>◇</span>
+                  <Art name="lantern-sprite" className="empty-sprite" />
                   <h3>The battlefield is quiet.</h3>
                   <p>Add the party, then choose your opponents.</p>
                   <button onClick={() => T("Roster & sheets")}>
@@ -310,6 +326,10 @@ function App() {
             </section>
             <aside>
               <section className="panel dice-panel">
+                <div className="dice-guardian">
+                  <Art name="lantern-sprite" />
+                  <span>Every good roll needs a witness.</span>
+                </div>
                 <small>PHYSICAL DICE ONLY</small>
                 <h3>Resolve an attack</h3>
                 <label>
@@ -371,7 +391,8 @@ function App() {
                     Disadvantage
                   </label>
                 </div>
-                <div className="fields">
+                <div className="fields roll-fields">
+                  <Art name="roll-guardian" />
                   <label>
                     d20
                     <input
@@ -652,6 +673,13 @@ function App() {
         {tab === "Roster & sheets" && (
           <>
             <section className="panel party-panel">
+              <figure className="garden-scene">
+                <Art name="statue-garden" />
+                <figcaption>
+                  <small>THE WATCHER’S GARDEN</small>
+                  <span>Old guardians. New adventurers.</span>
+                </figcaption>
+              </figure>
               <small>THE ADVENTURING PARTY</small>
               <h3>Five official premade sheets</h3>
               <p>
@@ -684,12 +712,21 @@ function App() {
               </div>
             </section>
             <section className="panel encounter-panel">
-              <small>MANUAL ENCOUNTER BUILDER</small>
-              <h3>Choose your opponents</h3>
+              <div className="encounter-heading">
+                <div>
+                  <small>MANUAL ENCOUNTER BUILDER</small>
+                  <h3>Choose your opponents</h3>
+                </div>
+                <Art name="lantern-sprite" />
+              </div>
               <p>
                 Add as many copies as needed. These are SRD combat extracts, not
                 adventure-specific stat blocks.
               </p>
+              <div className="sailor-peek">
+                <Art name="sailors" />
+                <span>Two old salts, still refusing to retire.</span>
+              </div>
               <div className="grid">
                 {monsters.map((m) => (
                   <article className="card" key={m.name}>
@@ -736,6 +773,7 @@ function App() {
         )}
         {tab === "Guide & sources" && (
           <section className="panel prose">
+            <Art name="lantern-sprite" className="guide-sprite" />
             <h3>A companion for the table</h3>
             <p>
               1. Open the official PDF and enter your party’s level-1 combat

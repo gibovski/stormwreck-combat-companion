@@ -49,3 +49,7 @@ The public repository deploys to [GitHub Pages](https://gibovski.github.io/storm
 The fantasy theme uses original CSS textures, an original SVG dragon and d20 crest, and system serif/sans-serif fonts. No external artwork or font downloads are required. Decorative motifs are hidden from assistive technology; navigation, physical dice inputs, and combat outcomes retain text labels. Reduced-motion preferences disable transitions.
 
 See `VERIFICATION.md` for actual checks and deployment outcome.
+
+## Original storybook illustrations
+
+Seven self-contained SVG plates in `public/art/` were drawn specifically for this app: the tide dragon, lavender dice dragon, extended roll guardian, misty wreck, weathered guardian garden with a rock cat, two undead sailors, and a lantern sprite. Original geometry, expressions and compositions; no official artwork, traced references, third-party assets, external fonts or hotlinks. These illustrations share the repository’s MIT license. Reserved illustration space, opaque numeric surfaces and pointer-transparent decorative images keep combat controls readable. Every plate is precached on the first online visit; changes to SVG contents also revise the offline cache.

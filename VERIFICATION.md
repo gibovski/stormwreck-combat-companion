@@ -39,3 +39,12 @@ Downloaded official PDFs temporarily for verification; PDFs are not committed:
 The earlier private-repository plan restriction is resolved: the repository is now public as requested by the user. GitHub API confirms Pages uses `build_type: workflow`, HTTPS enforced, and the live URL is https://gibovski.github.io/stormwreck-combat-companion/. The existing workflow verifies unit tests/build/browser tests before deploying. See GitHub Actions for the deployment tied to each commit; successful push alone is not considered deployment verification.
 
 Spell saves/effects, death saves, condition effects, monster traits and other DM adjudication remain manual as described in README and the app.
+
+## Illustrated edition — 2026-11-16
+
+- Added seven original, locally bundled SVG plates (no copied official artwork or third-party images): expressive sea dragon/round keeper, lavender dragon/HP and AC frame, extended dragon/roll frame, moonlit misty wreck, weathered statue garden with hidden rock cat, two zombie sailors peeking behind encounter cards, and lantern sprite. Illustrations use shared ink outlines, muted sea/glass/purple colors and subtle stippling.
+- Screenshot review covered mobile and desktop battle, roster and encounter layouts. Corrected the encounter description overlapping sailors and moved the mobile garden caption above its illustration. Numeric values and inputs use opaque surfaces; decorative art ignores pointer events and is hidden from assistive technology.
+- `npm test`: 14 passed. `npm run build`: TypeScript and production build passed. Browser suite: 10 mobile/desktop tests, including keyboard controls, 320/390/768/1440-width overflow checks, combat and save/restore, and offline image decoding for all seven plates. Offline roster artwork is verified after starting offline from a first-visit battle view.
+- Initial browser launch failed because the shell lacked the existing shared-library paths. Used the user-scoped `LD_LIBRARY_PATH` command documented above; no administrator action needed.
+- Precache enumerates every illustration and includes SVG contents in its cache revision hash, so artwork-only edits invalidate the old offline cache.
+- Screenshots are available in `test-results/` locally and uploaded by the Pages workflow. Chromium only; real-device Safari and a full screen-reader audit remain outside these checks.
