@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-11-16T23:21:15.168Z",
+  "records": [
+    {
+      "width": 320,
+      "geometry": {
+        "viewport": 844,
+        "document": 1247,
+        "overflow": false,
+        "activeTop": 312,
+        "nextTop": 788,
+        "damageTop": 451
+      },
+      "result": "PASS",
+      "tested": [
+        "setup",
+        "initiative",
+        "start",
+        "inline damage 7",
+        "heal 7",
+        "local condition",
+        "undo condition",
+        "next",
+        "round 2",
+        "reload",
+        "add cleric",
+        "damage to 0",
+        "heal from 0"
+      ]
+    },
+    {
+      "width": 375,
+      "geometry": {
+        "viewport": 844,
+        "document": 1247,
+        "overflow": false,
+        "activeTop": 312,
+        "nextTop": 788,
+        "damageTop": 451
+      },
+      "result": "PASS",
+      "tested": [
+        "setup",
+        "initiative",
+        "start",
+        "inline damage 7",
+        "heal 7",
+        "local condition",
+        "undo condition",
+        "next",
+        "round 2",
+        "reload",
+        "add cleric",
+        "damage to 0",
+        "heal from 0"
+      ]
+    },
+    {
+      "width": 390,
+      "geometry": {
+        "viewport": 844,
+        "document": 1247,
+        "overflow": false,
+        "activeTop": 312,
+        "nextTop": 788,
+        "damageTop": 451
+      },
+      "result": "PASS",
+      "tested": [
+        "setup",
+        "initiative",
+        "start",
+        "inline damage 7",
+        "heal 7",
+        "local condition",
+        "undo condition",
+        "next",
+        "round 2",
+        "reload",
+        "add cleric",
+        "damage to 0",
+        "heal from 0"
+      ]
+    },
+    {
+      "width": 1440,
+      "geometry": {
+        "viewport": 1000,
+        "document": 1082,
+        "overflow": false,
+        "activeTop": 377.5,
+        "nextTop": 937.5,
+        "damageTop": 526.5
+      },
+      "result": "PASS",
+      "tested": [
+        "setup",
+        "initiative",
+        "start",
+        "inline damage 7",
+        "heal 7",
+        "local condition",
+        "undo condition",
+        "next",
+        "round 2",
+        "reload",
+        "add cleric",
+        "damage to 0",
+        "heal from 0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "utc": "2026-11-16T23:21:05.323Z",
+  "method": "Independent browser keyboard, computed contrast, viewport reflow checks; no axe installed/used",
+  "noteUndo": "passed",
+  "modalInitialFocus": "passed",
+  "focusTrapBackwardForward": "passed",
+  "escape": "passed",
+  "focusReturn": "passed",
+  "reducedMotion": "browser requested reduce; CSS respects media query",
+  "reflow320With200PercentRootFont": {
+    "overflow": false,
+    "width": 320,
+    "scrollWidth": 320
+  },
+  "cssZoomSimulation": {
+    "overflow": true,
+    "width": 640,
+    "scrollWidth": 681,
+    "zoom": "2",
+    "limitation": "Not native browser zoom: CSS zoom retains desktop media query at640 and overflows; actual native zoom unverified. Real320px responsive layout separately passed."
+  },
+  "storageFailure": {
+    "failureMessage": "Saving failed: browser storage unavailable or full. Export a backup.",
+    "saveLabel": "Not saved · export backup"
+  },
+  "contrastMetrics": [
+    {
+      "tag": "BUTTON",
+      "text": "Battle",
+      "foreground": "rgb(246, 211, 149)",
+      "background": "rgb(41, 51, 50)",
+      "ratio": 9.09,
+      "height": 44,
+      "width": 90
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Setup",
+      "foreground": "rgb(184, 199, 200)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 10.89,
+      "height": 44,
+      "width": 90
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Attack",
+      "foreground": "rgb(184, 199, 200)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 10.89,
+      "height": 44,
+      "width": 90
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Rules",
+      "foreground": "rgb(184, 199, 200)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 10.89,
+      "height": 44,
+      "width": 90
+    },
+    {
+      "tag": "BUTTON",
+      "text": "+ Add",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 44,
+      "width": 80
+    },
+    {
+      "tag": "P",
+      "text": "Enter rolled initiative totals, includin",
+      "foreground": "rgb(178, 192, 194)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 10.14,
+      "height": 39.59375,
+      "width": 366
+    },
+    {
+      "tag": "SPAN",
+      "text": "FOE",
+      "foreground": "rgb(213, 193, 150)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 9.28,
+      "height": 11,
+      "width": 25.46875
+    },
+    {
+      "tag": "INPUT",
+      "text": "Zombie 1 initiative",
+      "foreground": "rgb(241, 237, 228)",
+      "background": "rgb(13, 24, 30)",
+      "ratio": 15.41,
+      "height": 44,
+      "width": 64
+    },
+    {
+      "tag": "STRONG",
+      "text": "22 / 22 HP",
+      "foreground": "rgb(232, 230, 223)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 13.12,
+      "height": 26,
+      "width": 79.046875
+    },
+    {
+      "tag": "SMALL",
+      "text": "/ 22 HP",
+      "foreground": "rgb(189, 201, 200)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 9.64,
+      "height": 14,
+      "width": 47.03125
+    },
+    {
+      "tag": "INPUT",
+      "text": "Zombie 1 HP amount",
+      "foreground": "rgb(241, 237, 228)",
+      "background": "rgb(13, 24, 30)",
+      "ratio": 15.41,
+      "height": 44,
+      "width": 101.25
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Damage Zombie 1",
+      "foreground": "rgb(255, 208, 195)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 9.52,
+      "height": 44,
+      "width": 121.5
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Heal Zombie 1",
+      "foreground": "rgb(200, 236, 220)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.43,
+      "height": 44,
+      "width": 101.25
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "Conditions, notes & details",
+      "foreground": "rgb(193, 206, 204)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 10.12,
+      "height": 44,
+      "width": 338
+    },
+    {
+      "tag": "SELECT",
+      "text": "Conditions for Zombie 1",
+      "foreground": "rgb(241, 237, 228)",
+      "background": "rgb(13, 24, 30)",
+      "ratio": 15.41,
+      "height": 44,
+      "width": 338
+    },
+    {
+      "tag": "P",
+      "text": "Condition reminders only; apply effects ",
+      "foreground": "rgb(178, 192, 194)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 8.75,
+      "height": 19.796875,
+      "width": 338
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Attack / temp HP",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 44,
+      "width": 144.6875
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Edit",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(52, 75, 80)",
+      "ratio": 7.65,
+      "height": 44,
+      "width": 56.640625
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Remove",
+      "foreground": "rgb(255, 178, 164)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 7.69,
+      "height": 44,
+      "width": 84.09375
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Move up Zombie 1",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 44,
+      "width": 40.0625
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Move down Zombie 1",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 44,
+      "width": 40.0625
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "At the table · quick rules",
+      "foreground": "rgb(224, 187, 124)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 9.02,
+      "height": 45,
+      "width": 340
+    },
+    {
+      "tag": "P",
+      "text": "SRD 5.1, pp. 96–98, 173, 356–357. Paraph",
+      "foreground": "rgb(178, 192, 194)",
+      "background": "rgb(23, 33, 38)",
+      "ratio": 8.75,
+      "height": 59.390625,
+      "width": 340
+    },
+    {
+      "tag": "BUTTON",
+      "text": "+ Add combatant",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 15.7,
+      "height": 44,
+      "width": 366
+    },
+    {
+      "tag": "STRONG",
+      "text": "Roll initiative",
+      "foreground": "rgb(232, 230, 223)",
+      "background": "rgb(17, 29, 35)",
+      "ratio": 13.74,
+      "height": 18,
+      "width": 178
+    },
+    {
+      "tag": "SPAN",
+      "text": "Next: Zombie 1",
+      "foreground": "rgb(185, 201, 200)",
+      "background": "rgb(17, 29, 35)",
+      "ratio": 10.01,
+      "height": 13,
+      "width": 178
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Undo last change",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 46,
+      "width": 130
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Start battle →",
+      "foreground": "rgb(255, 255, 255)",
+      "background": "rgb(49, 94, 89)",
+      "ratio": 7.3,
+      "height": 46,
+      "width": 230
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "Backup, battle journal & reset",
+      "foreground": "rgb(187, 200, 200)",
+      "background": "rgb(11, 17, 21)",
+      "ratio": 11.05,
+      "height": 44,
+      "width": 366
+    },
+    {
+      "tag": "BUTTON",
+      "text": "↶ Undo (1)",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 50,
+      "width": 85.5
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Export backup",
+      "foreground": "rgb(238, 233, 223)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 10.98,
+      "height": 50,
+      "width": 85.5
+    },
+    {
+      "tag": "INPUT",
+      "text": "",
+      "foreground": "rgb(241, 237, 228)",
+      "background": "rgb(13, 24, 30)",
+      "ratio": 15.41,
+      "height": 44,
+      "width": 22
+    },
+    {
+      "tag": "BUTTON",
+      "text": "New battle",
+      "foreground": "rgb(255, 178, 164)",
+      "background": "rgb(34, 50, 56)",
+      "ratio": 7.69,
+      "height": 50,
+      "width": 85.5
+    }
+  ],
+  "contrastFailures": [],
+  "touchTargetsBelow44": []
+}

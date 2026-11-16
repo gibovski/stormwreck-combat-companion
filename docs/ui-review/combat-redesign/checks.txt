@@ -1,0 +1,11 @@
+Source revision dff871da250e27d90dcfbfb816c2c78fd394b08c
+Built preview http://127.0.0.1:4173/stormwreck-combat-companion/
+Author reported: npm run build passed; npm test (14 engine tests) passed; full npm run test:e2e 14 passed before final all-tab dock; affected6 browser rerun passed after dock change; prettier check and git diff --check passed. See author run output for exact output; these are author validation, not independently rerun unit suite.
+Independent reviewer commands (existing browser/library dependencies only):
+LD_LIBRARY_PATH=/var/lib/bazworker/.local/lib/bazfit-browser/usr/lib/x86_64-linux-gnu:/var/lib/bazworker/.local/urban-browser/usr/lib/x86_64-linux-gnu node /tmp/after-review.mjs
+PASS 4 widths 320/375/390/1440, combat workflow paths, geometry screenshots; script saved after/capture.mjs.
+Same library prefix node /tmp/a11y-review.mjs
+PASS keyboard dialog focus/trap/Escape/return, notes undo, storage failure, visible contrast >=4.5, visible action target height>=44,320px reflow. CSS zoom simulation limitation recorded; native zoom unverified. No axe or screen-reader audit.
+Same library prefix node /tmp/extras-review.mjs
+PASS physical-dice critical Skeleton→Zombie damage7; Setup and Attack capture. Script saved after/extras-capture.mjs.
+Artifacts interaction-results.json, accessibility-results.json retain actual checked details. Baseline capture command initially failed missing shared-library path; recovered using existing user libraries, no new browser dependencies.

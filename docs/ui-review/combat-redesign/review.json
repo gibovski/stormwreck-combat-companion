@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "revision": "dff871da250e27d90dcfbfb816c2c78fd394b08c",
+  "author": "/root",
+  "visual": "passed",
+  "checks": {
+    "build": "passed",
+    "behavior": "passed",
+    "accessibility": "passed"
+  },
+  "reviewer": {
+    "identity": "/root/ux_review",
+    "method": "independent-agent"
+  },
+  "blockers": [],
+  "scores": {
+    "hierarchy": 4.5,
+    "journeys": 4,
+    "responsive": 4,
+    "accessibility": 4,
+    "consistency": 4.5,
+    "states": 4,
+    "brand": 4
+  },
+  "artifacts": [
+    {
+      "path": "design.md",
+      "kind": "design",
+      "sha256": "c21b8f999f66ce49a25dd37441ea54c32c7166657b8da54909fe6a822d3927c5"
+    },
+    {
+      "path": "critique.md",
+      "kind": "critique",
+      "sha256": "dd155cfac3c9a6027137e4b54227cfb1ad0148655dfd9d547ca5d72bb7dec058"
+    },
+    {
+      "path": "checks.txt",
+      "kind": "checks",
+      "sha256": "90589291b5daf1ffba48687f5db8690df930b92f7823107bd409cebe6ce145d7"
+    },
+    {
+      "path": "after/interaction-results.json",
+      "kind": "checks",
+      "sha256": "32795a0cb37c9b2d876845728ba9e44225457de067a2307f1f317c839509c095"
+    },
+    {
+      "path": "after/accessibility-results.json",
+      "kind": "checks",
+      "sha256": "2c9cf8ca06d22f3f9dc9ac6a8f63a6f22c4ad920ea25de7077428319e2064ecb"
+    },
+    {
+      "path": "after/battle-390.png",
+      "kind": "screenshot",
+      "sha256": "d01a0674c9364ec6765994ef141938b11b319796530970fb7bc9555dae34df8b",
+      "inspected": true,
+      "route_state": "Battle, Zombie18/Skeleton10 initiative, round1 started, top scrolled",
+      "captured_utc": "2026-11-16T23:21:06.414259+00:00",
+      "url": "http://127.0.0.1:4173/stormwreck-combat-companion/",
+      "revision": "dff871da250e27d90dcfbfb816c2c78fd394b08c",
+      "width": 390,
+      "height": 844,
+      "viewport": "mobile"
+    },
+    {
+      "path": "after/battle-1440.png",
+      "kind": "screenshot",
+      "sha256": "e89e948ca9494c698102d848f73820c059080aa9ebd301b52e0f331bcc93888e",
+      "inspected": true,
+      "route_state": "Battle, Zombie18/Skeleton10 initiative, round1 started, top scrolled",
+      "captured_utc": "2026-11-16T23:21:10.723823+00:00",
+      "url": "http://127.0.0.1:4173/stormwreck-combat-companion/",
+      "revision": "dff871da250e27d90dcfbfb816c2c78fd394b08c",
+      "width": 1440,
+      "height": 1000,
+      "viewport": "desktop"
+    }
+  ],
+  "limitations": [
+    "Native browser zoom and screen reader not tested; tested320 reflow, computed contrast, keyboard, touch targets.",
+    "Death saves, spell effects, saving throws and XP/rest are manual, not new automated rules."
+  ],
+  "reviewed_source_revision": "dff871da250e27d90dcfbfb816c2c78fd394b08c"
+}
