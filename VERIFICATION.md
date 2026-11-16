@@ -60,3 +60,4 @@ Supersedes the earlier SVG art direction. Replaced all seven simplistic SVG plat
 - Initial browser launch without user-scoped shared libraries failed; the documented library paths resolved it. Pillow was installed in a temporary virtual environment to compress generated originals. No system packages or services changed.
 - Service-worker revision includes WebP bytes, preserving automatic offline cache invalidation for artwork-only changes.
 - `git diff --check`: passed. Real-device Safari and a full screen-reader audit were not performed.
+- Final crop/screenshot-wait rerun: 9 passed, desktop keyboard test hit the 30-second test budget while typing. `npm run test:e2e -- --last-failed` with the same library paths passed that test in 4.7 seconds; no implementation change was required. Earlier full suite passed all 10. CI independently checks the pushed revision before deploying.
