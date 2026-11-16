@@ -925,327 +925,93 @@ nav button:focus-visible,
   clip-path: inset(50%);
 }
 
-/* Original storybook plates: illustrations occupy reserved, noninteractive space. */
-.storybook-art {
-  display: block;
-  pointer-events: none;
-  user-select: none;
-  max-width: 100%;
+
+/* Cinematic coastal fantasy. Artwork stays outside interactive hit areas. */
+:root { color-scheme: dark; color: #e1dbcd; background: #0b1115; }
+body { background: radial-gradient(ellipse at 85% 0, #23404755, transparent 50%), #0b1115; }
+header { background: #0c1419; border-color: #685442; }
+.brand img { filter: grayscale(.8); }
+.scene-art { display: block; pointer-events: none; user-select: none; max-width: 100%; object-fit: cover; }
+.intro { min-height: 360px; overflow: hidden; border-radius: 3px; border-color: #72604b; background: #101c22; padding: 42px; }
+.intro::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,#081116ef 0%,#08111699 42%,transparent 75%), url('/art/tide-dragon.webp') center 45% / cover; z-index: -1; }
+.intro > div:first-child { max-width: 55%; }
+.intro h2 { text-shadow: 0 2px 16px #000; }
+.round-keeper { align-self: flex-end; position: relative; width: 140px; height: 130px; }
+.round-keeper .dragon-art { display: none; }
+.round-keeper .round { position: absolute; inset: 12px; border-radius: 3px; background: #0c151eeb; border-color: #bb9361; box-shadow: 0 8px 32px #0008; }
+.round-keeper .round strong { color: #f1d3a1; }
+nav { background: #121d23; border-color: #3c494d; border-radius: 3px; }
+nav .on, nav .on:hover { background: #a98b60; color: #111a1d; }
+.actor, .panel, .modal, .card, .empty { background: #18242a; color: #e1dbcd; border-color: #4b5554; border-radius: 4px; box-shadow: 0 8px 24px #0003; }
+.actor.active { background: #29332f; border-color: #b89a68; border-left-color: #d3ad72; }
+.actor[data-side="monster"] { border-left-color: #a17060; }
+.actor[data-side="monster"] .badge, .badge, .panel > small { color: #d2ad7f; }
+.actor-top label, label, .muted { color: #bdc8c5; }
+.actor.selected .actions button:first-child { background: #294b4b; border-color: #96b4ac; }
+button, .filebutton { background: #24363b; color: #eee1c9; border-color: #68726b; border-radius: 4px; }
+button:hover, .filebutton:hover { background: #365057; }
+.primary, .sectionhead button { background: #305451; border-color: #69867b; }
+.primary:hover, .sectionhead button:hover { background: #3e6963; }
+input:not([type="checkbox"]), select, textarea { color: #f1e8d7; background: #0e191f; border-color: #65736c; }
+a { color: #dfc18c; }
+.tags span { background: #3a3b30; border-color: #8f7b53; color: #e7d2a8; }
+.vitals > span:first-of-type { background: #14232b; color: #d1e1df; border-color: #6c7c79; }
+.calculation { background: #254337; color: #e3efdf; }
+.calculation.miss { background: #492d2d; color: #ffe0d1; }
+.danger, .modal [role="status"] { color: #f3a999; }
+hr { border-color: #53605d; }
+.wreck-scene, .garden-scene { position: relative; margin: 0 0 22px; overflow: hidden; border: 1px solid #5a615c; border-radius: 3px; background: #101b20; }
+.wreck-scene { grid-column: 1 / -1; }
+.wreck-scene > img { width: 100%; height: 320px; object-position: center 58%; }
+.wreck-scene figcaption, .garden-scene figcaption { position: absolute; left: 0; bottom: 0; right: 0; padding: 28px; color: #f0e3ca; background: linear-gradient(transparent,#071116ee); }
+figure figcaption small, figure figcaption span { display: block; }
+figure figcaption small { color: #dfbc84; }
+figure figcaption span { font: italic 21px/1.5 Georgia,serif; }
+.garden-scene { margin: -24px -24px 24px; border: 0; }
+.garden-scene img { width: 100%; height: 340px; }
+.dice-guardian { margin: -24px -24px 24px; border-bottom: 1px solid #645c49; }
+.dice-guardian img { width: 100%; height: 190px; }
+.dice-guardian span { display: block; padding: 10px 20px; font: italic 13px/1.5 Georgia,serif; color: #c7bcab; }
+.illustrated-vitals { position: relative; isolation: isolate; padding: 25px 15px 34px; margin: 0 -5px; min-height: 100px; width: fit-content; }
+.illustrated-vitals .vitals-dragon { position: absolute; inset: 0; height: 100%; width: 100%; z-index: -1; opacity: .75; border-radius: 5px; }
+.illustrated-vitals > strong, .illustrated-vitals > span { background: #101c23; padding: 7px; border: 1px solid #9c855e; border-radius: 3px; }
+.roll-fields { position: relative; isolation: isolate; padding: 30px 12px; margin: 0 -5px; }
+.roll-fields > .scene-art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: .7; border-radius: 4px; }
+.roll-fields label { background: #15232bef; padding: 6px; border-radius: 3px; }
+.empty { padding: 0 0 24px; overflow: hidden; }
+.empty .empty-lantern { width: 100%; height: 210px; object-position: center 55%; margin-bottom: 24px; }
+.empty p { padding: 0 18px; }
+.encounter-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.encounter-heading img { width: 120px; height: 90px; border-radius: 3px; }
+.sailor-peek { margin: 20px 0; position: relative; }
+.sailor-peek img { width: 100%; height: 300px; object-position: center 35%; }
+.sailor-peek span { display: block; padding: 10px; background: #101b20; color: #c7bcab; font: italic 13px/1.5 Georgia,serif; }
+.creature-art { width: calc(100% + 40px); max-width: none; height: 160px; margin: -20px -20px 20px; }
+.encounter-panel .card { overflow: hidden; }
+.encounter-panel .card h3::before { content: none; }
+.guide-lantern { float: right; width: 42%; margin: 0 0 24px 24px; border: 1px solid #746146; }
+@media(max-width:800px) {
+ .intro { min-height: 360px; padding: 26px 22px; align-items: flex-start; flex-direction: column; }
+ .intro::before { background: linear-gradient(90deg,#081116d9,#08111640), url('/art/tide-dragon.webp') 65% center / cover; }
+ .intro > div:first-child { max-width: 100%; }
+ .intro h2 { font-size: 32px; }
+ .intro p { max-width: 260px; }
+ .round-keeper { width: 100px; height: 100px; margin-top: 20px; }
+ .round-keeper .round { inset: 0; min-width: 0; padding: 10px; }
+ .wreck-scene > img { height: 240px; }
+ .wreck-scene figcaption, .garden-scene figcaption { padding: 18px; }
+ figure figcaption span { font-size: 17px; }
+ .garden-scene { margin: -19px -19px 22px; }
+ .garden-scene img { height: 300px; }
+ .dice-guardian { margin: -19px -19px 20px; }
+ .illustrated-vitals { width: 100%; padding: 23px 8px; gap: 8px; }
+ .illustrated-vitals > strong { font-size: 22px; }
+ .illustrated-vitals > span { font-size: 11px; }
+ .encounter-panel .grid { grid-template-columns: 1fr; }
+ .sailor-peek img { height: 230px; }
+ .guide-lantern { float: none; width: 100%; margin: 0 0 24px; max-height: 240px; }
+ nav button { padding: 13px 6px; }
 }
-.intro {
-  min-height: 300px;
-  overflow: visible;
-}
-.intro > div:first-child {
-  max-width: 55%;
-}
-.round-keeper {
-  position: relative;
-  width: 310px;
-  height: 255px;
-  flex-shrink: 0;
-}
-.round-keeper .dragon-art {
-  position: absolute;
-  inset: 0;
-  width: 310px;
-  height: 255px;
-  opacity: 1;
-  z-index: 0;
-  filter: drop-shadow(0 8px 5px #071b2540);
-}
-.round-keeper .round {
-  position: absolute;
-  right: 62px;
-  bottom: 22px;
-  padding: 8px 15px;
-  min-width: 77px;
-  border-radius: 10px;
-  background: #fff0cc;
-  box-shadow: 0 3px 0 #162f35;
-  z-index: 1;
-}
-.round-keeper .round small {
-  color: #365a58;
-}
-.round-keeper .round strong {
-  color: #244e53;
-  font-size: 33px;
-}
-.wreck-scene {
-  grid-column: 1 / -1;
-  position: relative;
-  margin: 0;
-  border: 1px solid #788c82;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #173742;
-}
-.wreck-scene > img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-.wreck-scene figcaption {
-  position: absolute;
-  right: 30px;
-  bottom: 24px;
-  padding: 12px 18px;
-  background: #102d36ed;
-  border: 1px solid #8b9b86;
-  border-radius: 6px;
-  color: #fff0cd;
-}
-figure figcaption small,
-figure figcaption span {
-  display: block;
-}
-figure figcaption span {
-  font:
-    italic 18px/1.5 Georgia,
-    serif;
-}
-figure figcaption small {
-  color: #e8c58d;
-}
-.dice-guardian {
-  margin: -12px -8px 18px;
-  border-bottom: 1px solid #cbb88e;
-  text-align: center;
-  padding-bottom: 14px;
-}
-.dice-guardian img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-.dice-guardian span,
-.sailor-peek span {
-  font:
-    italic 13px/1.5 Georgia,
-    serif;
-  color: #5f6860;
-}
-.roll-fields {
-  border: 2px solid #b694b0;
-  border-radius: 10px;
-  background: #eadde740;
-  padding: 0 12px;
-}
-.illustrated-vitals {
-  position: relative;
-  padding: 49px 15px 30px;
-  margin-top: 5px;
-  width: fit-content;
-  min-width: 290px;
-  min-height: 124px;
-  isolation: isolate;
-}
-.illustrated-vitals .vitals-dragon {
-  position: absolute;
-  inset: -19px 0 0;
-  width: 100%;
-  height: 155px;
-  object-fit: fill;
-  z-index: -1;
-}
-.illustrated-vitals > strong,
-.illustrated-vitals > span {
-  background: #fff6dd;
-  border: 1px solid #ba9b79;
-  padding: 5px 8px;
-  border-radius: 6px;
-}
-.illustrated-vitals > strong {
-  font-size: 23px;
-}
-.empty .empty-sprite {
-  width: 230px;
-  height: 172px;
-  margin: -25px auto 0;
-}
-.garden-scene {
-  position: relative;
-  margin: -24px -24px 22px;
-  border-radius: 9px 9px 0 0;
-  overflow: hidden;
-  background: #d9dfc5;
-}
-.garden-scene img {
-  width: 100%;
-  min-height: 220px;
-  object-fit: cover;
-}
-.garden-scene figcaption {
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  color: #2c514f;
-  max-width: 45%;
-}
-.garden-scene figcaption small {
-  color: #4c6c5c;
-}
-.garden-scene figcaption span {
-  font-size: 25px;
-  margin-top: 8px;
-}
-.encounter-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.encounter-heading img {
-  width: 150px;
-  height: 110px;
-  margin: -20px 0;
-}
-.sailor-peek {
-  position: relative;
-  margin: 0 auto -42px;
-  max-width: 600px;
-  text-align: center;
-}
-.sailor-peek img {
-  width: 100%;
-  height: auto;
-}
-.sailor-peek span {
-  position: absolute;
-  width: 27%;
-  left: 36%;
-  top: 30%;
-}
-.encounter-panel .grid {
-  position: relative;
-  margin-top: 0;
-  gap: 20px;
-}
-.encounter-panel .card {
-  box-shadow:
-    0 -3px 0 #d4bd91,
-    0 5px 12px #243f3520;
-}
-.guide-sprite {
-  float: right;
-  width: 160px;
-  margin: 0 0 12px 12px;
-}
-@media (max-width: 800px) {
-  .intro {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 24px 20px 0;
-    gap: 0;
-  }
-  .intro > div:first-child {
-    max-width: 100%;
-  }
-  .intro h2 {
-    font-size: 34px;
-  }
-  .round-keeper {
-    align-self: center;
-    width: 290px;
-    height: 230px;
-    margin-top: -10px;
-  }
-  .round-keeper .dragon-art {
-    width: 290px;
-    height: 239px;
-  }
-  .round-keeper .round {
-    bottom: 10px;
-    right: 57px;
-  }
-  .wreck-scene > img {
-    height: 210px;
-    object-position: 32% center;
-  }
-  .wreck-scene figcaption {
-    right: 10px;
-    bottom: 10px;
-    padding: 8px 10px;
-  }
-  figure figcaption span {
-    font-size: 15px;
-  }
-  .garden-scene {
-    margin: -19px -19px 20px;
-  }
-  .garden-scene img {
-    height: 260px;
-    min-height: 0;
-    object-position: 66% bottom;
-  }
-  .garden-scene figcaption {
-    top: 18px;
-    left: 18px;
-    max-width: 57%;
-  }
-  .garden-scene figcaption span {
-    font-size: 22px;
-  }
-  .illustrated-vitals {
-    min-width: 0;
-    width: 100%;
-    gap: 6px;
-    padding-left: 7px;
-    padding-right: 7px;
-  }
-  .illustrated-vitals > strong {
-    font-size: 21px;
-  }
-  .illustrated-vitals > span {
-    font-size: 11px;
-  }
-  .sailor-peek {
-    margin-bottom: -20px;
-  }
-  .sailor-peek span {
-    display: none;
-  }
-  .encounter-heading img {
-    width: 100px;
-  }
-  .encounter-panel .grid {
-    grid-template-columns: 1fr;
-  }
-}
-.roll-fields {
-  position: relative;
-  isolation: isolate;
-  border: 0;
-  background: none;
-  padding: 115px 20px 42px;
-  margin: 0 -8px;
-  gap: 10px;
-}
-.roll-fields > .storybook-art {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.roll-fields label {
-  background: #f8ebd2;
-  border-radius: 6px;
-  padding: 4px;
-  min-width: 60px;
-}
-@media (max-width: 800px) {
-  .garden-scene {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .garden-scene figcaption {
-    position: static;
-    max-width: none;
-    padding: 18px 18px 0;
-  }
-  .garden-scene img {
-    height: 210px;
-  }
-}
+@media(min-width:801px) { .intro::before { background-position: center top; } }
+.sailor-peek img { object-position: center 15%; }
+.creature-art { object-position: center 20%; }

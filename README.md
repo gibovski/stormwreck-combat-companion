@@ -46,10 +46,10 @@ Independent unofficial companion; no endorsement. Code is MIT licensed; SRD-deri
 
 The public repository deploys to [GitHub Pages](https://gibovski.github.io/stormwreck-combat-companion/). `.github/workflows/pages.yml` runs unit tests, builds, checks mobile and desktop Chromium, and deploys on pushes to `main`. Pages uses the GitHub Actions source.
 
-The fantasy theme uses original CSS textures, an original SVG dragon and d20 crest, and system serif/sans-serif fonts. No external artwork or font downloads are required. Decorative motifs are hidden from assistive technology; navigation, physical dice inputs, and combat outcomes retain text labels. Reduced-motion preferences disable transitions.
+The visual treatment uses seven original AI-generated dark fantasy paintings, locally hosted as optimized WebP assets. Slate, charcoal, muted teal and aged copper surfaces keep the coastal atmosphere consistent. No official D&D artwork, stock clipart, external fonts or hotlinks are used. Decorative art is hidden from assistive technology; opaque controls, keyboard navigation and physical dice workflows remain intact.
+
+## Artwork provenance
+
+All seven paintings in `public/art/` were generated specifically for this project using OpenAI image generation on 2026-11-16: a bronze dragon above storm cliffs, a wreck, ruined statue garden, drowned sailors, dragon-tail framing, an antique watch lantern and a dragon-claw gaming altar. These are original generated assets rather than licensed third-party illustrations; no official franchise artwork was supplied as reference. They are distributed with this repository under its MIT terms to the extent rights apply. Optimized WebP keeps the entire set small enough for offline precaching. The service worker hashes artwork contents as well as the app entry point, so art replacements invalidate the cache.
 
 See `VERIFICATION.md` for actual checks and deployment outcome.
-
-## Original storybook illustrations
-
-Seven self-contained SVG plates in `public/art/` were drawn specifically for this app: the tide dragon, lavender dice dragon, extended roll guardian, misty wreck, weathered guardian garden with a rock cat, two undead sailors, and a lantern sprite. Original geometry, expressions and compositions; no official artwork, traced references, third-party assets, external fonts or hotlinks. These illustrations share the repository’s MIT license. Reserved illustration space, opaque numeric surfaces and pointer-transparent decorative images keep combat controls readable. Every plate is precached on the first online visit; changes to SVG contents also revise the offline cache.

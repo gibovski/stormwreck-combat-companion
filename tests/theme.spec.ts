@@ -19,6 +19,9 @@ test("fantasy views remain usable at narrow widths and with keyboard navigation"
   await expect(roster).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".party-panel")).toBeVisible();
   await expect(page.locator(".encounter-panel")).toBeVisible();
+  await page.locator(".scene-art").evaluateAll((imgs) =>
+    Promise.all(imgs.map((img) => (img as HTMLImageElement).decode())),
+  );
   await page.screenshot({
     path: `test-results/roster-${test.info().project.name}.png`,
     fullPage: true,

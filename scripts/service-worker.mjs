@@ -13,7 +13,7 @@ const digest = createHash("sha256")
   .update(await readFile("dist/index.html"))
   .update(
     await Promise.all(
-      files.filter((f) => f.endsWith(".svg")).map((f) => readFile("dist/" + f)),
+      files.filter((f) => /\.(svg|webp)$/.test(f)).map((f) => readFile("dist/" + f)),
     ).then((parts) => Buffer.concat(parts)),
   )
   .digest("hex")

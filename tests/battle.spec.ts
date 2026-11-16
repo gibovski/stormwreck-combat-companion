@@ -62,6 +62,9 @@ test("duplicates, combat, critical damage, undo, resume and offline", async ({
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
+  await page.locator(".scene-art").evaluateAll((imgs) =>
+    Promise.all(imgs.map((img) => (img as HTMLImageElement).decode())),
+  );
   await page.screenshot({
     path: `test-results/battle-${test.info().project.name}.png`,
     fullPage: true,
@@ -181,13 +184,13 @@ test("first-visit precache provides offline shell and assets", async ({
     "roll-guardian",
     "statue-garden",
     "sailors",
-    "lantern-sprite",
+    "watch-lantern",
   ];
   for (const name of artNames) {
     expect(
       await page.evaluate(async (name) => {
         const img = new Image();
-        img.src = `./art/${name}.svg`;
+        img.src = `./art/${name}.webp`;
         await img.decode();
         return img.naturalWidth > 0;
       }, name),
@@ -196,7 +199,7 @@ test("first-visit precache provides offline shell and assets", async ({
   await page
     .getByRole("button", { name: "Roster & sheets", exact: true })
     .click();
-  for (const img of await page.locator(".storybook-art").all()) {
+  for (const img of await page.locator(".scene-art").all()) {
     await expect(img).not.toHaveJSProperty("naturalWidth", 0);
   }
   await expect(page.locator(".dragon-art")).toHaveJSProperty("complete", true);

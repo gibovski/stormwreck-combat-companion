@@ -48,3 +48,15 @@ Spell saves/effects, death saves, condition effects, monster traits and other DM
 - Initial browser launch failed because the shell lacked the existing shared-library paths. Used the user-scoped `LD_LIBRARY_PATH` command documented above; no administrator action needed.
 - Precache enumerates every illustration and includes SVG contents in its cache revision hash, so artwork-only edits invalidate the old offline cache.
 - Screenshots are available in `test-results/` locally and uploaded by the Pages workflow. Chromium only; real-device Safari and a full screen-reader audit remain outside these checks.
+
+## Cinematic dark fantasy correction — 2026-11-16
+
+Supersedes the earlier SVG art direction. Replaced all seven simplistic SVG plates with seven original generated paintings, optimized to 1,587,000 bytes total (about 1.6 MB). Added a large dragon scene backdrop, storm wreck banner, misty statue garden, drowned sailor encounter scene and card artwork, antique lantern scenes, and scaled tail/claw frames around opaque numeric controls. Updated surfaces to charcoal/slate with muted teal, copper and parchment-gold accents. No official D&D artwork or external image dependencies.
+
+- `npm test`: 14 engine tests passed.
+- `npm run build`: TypeScript and production build passed; no unresolved asset warnings.
+- `LD_LIBRARY_PATH=/var/lib/bazworker/.local/lib/bazfit-browser/usr/lib/x86_64-linux-gnu:/var/lib/bazworker/.local/urban-browser/usr/lib/x86_64-linux-gnu npm run test:e2e`: 10 Chromium tests passed on mobile and desktop, including 320/390/768/1440-width overflow checks, physical dice entry, combat, undo, import/export, persistence, and decoding all seven WebP assets offline.
+- Reviewed full-page battle and roster screenshots at 390 and 1440 pixels, plus populated combat screenshots. Adjusted desktop dragon framing to preserve its head and sailor crop to preserve faces. Screenshot capture now waits for image decoding to avoid empty plates in CI captures.
+- Initial browser launch without user-scoped shared libraries failed; the documented library paths resolved it. Pillow was installed in a temporary virtual environment to compress generated originals. No system packages or services changed.
+- Service-worker revision includes WebP bytes, preserving automatic offline cache invalidation for artwork-only changes.
+- `git diff --check`: passed. Real-device Safari and a full screen-reader audit were not performed.

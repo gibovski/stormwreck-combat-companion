@@ -18,11 +18,12 @@ import "./style.css";
 function Art({ name, className = "" }: { name: string; className?: string }) {
   return (
     <img
-      className={`storybook-art ${className}`}
-      src={`${import.meta.env.BASE_URL}art/${name}.svg`}
+      className={`scene-art ${className}`}
+      src={`${import.meta.env.BASE_URL}art/${name}.webp`}
       alt=""
       aria-hidden="true"
       draggable="false"
+      decoding="async"
     />
   );
 }
@@ -312,7 +313,7 @@ function App() {
               ))}
               {!s.actors.length && (
                 <div className="empty">
-                  <Art name="lantern-sprite" className="empty-sprite" />
+                  <Art name="watch-lantern" className="empty-lantern" />
                   <h3>The battlefield is quiet.</h3>
                   <p>Add the party, then choose your opponents.</p>
                   <button onClick={() => T("Roster & sheets")}>
@@ -327,8 +328,8 @@ function App() {
             <aside>
               <section className="panel dice-panel">
                 <div className="dice-guardian">
-                  <Art name="lantern-sprite" />
-                  <span>Every good roll needs a witness.</span>
+                  <Art name="watch-lantern" />
+                  <span>The dice remain in your hands.</span>
                 </div>
                 <small>PHYSICAL DICE ONLY</small>
                 <h3>Resolve an attack</h3>
@@ -717,7 +718,7 @@ function App() {
                   <small>MANUAL ENCOUNTER BUILDER</small>
                   <h3>Choose your opponents</h3>
                 </div>
-                <Art name="lantern-sprite" />
+                <Art name="watch-lantern" />
               </div>
               <p>
                 Add as many copies as needed. These are SRD combat extracts, not
@@ -725,11 +726,12 @@ function App() {
               </p>
               <div className="sailor-peek">
                 <Art name="sailors" />
-                <span>Two old salts, still refusing to retire.</span>
+                <span>Death has done little for their disposition.</span>
               </div>
               <div className="grid">
                 {monsters.map((m) => (
                   <article className="card" key={m.name}>
+                    <Art name={m.name === "Zombie" || m.name === "Skeleton" ? "sailors" : "tide-dragon"} className="creature-art" />
                     <h3>{m.name}</h3>
                     <p>
                       AC {m.ac} · {m.maxHp} HP · DEX {m.dex >= 0 ? "+" : ""}
@@ -773,7 +775,7 @@ function App() {
         )}
         {tab === "Guide & sources" && (
           <section className="panel prose">
-            <Art name="lantern-sprite" className="guide-sprite" />
+            <Art name="watch-lantern" className="guide-lantern" />
             <h3>A companion for the table</h3>
             <p>
               1. Open the official PDF and enter your party’s level-1 combat
